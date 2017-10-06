@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 const javascriptOutputPath = 'assets/javascripts'
 const stylesheetsOutputPath = 'assets/stylesheets'
@@ -110,7 +111,8 @@ module.exports = {
     //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     // }),
     new webpack.NoEmitOnErrorsPlugin(),
-    new ProgressBarPlugin()
+    new ProgressBarPlugin(),
+    new DashboardPlugin
   ],
   stats: {
     children: false // Disable ExtractTextPlugin logs
