@@ -1,0 +1,44 @@
+@font-face {
+	font-family: "myfonticons";
+	src: url("/assets/fonts/app.myfonticons.31662b73676c529528fcbc50b7191a2b.eot?#iefix") format("embedded-opentype"),
+url("/assets/fonts/app.myfonticons.266466f6e35828b37433b18de2c194c8.woff") format("woff"),
+url("/assets/fonts/app.myfonticons.dc00fca6241a4e074b12e22f0c169ef5.woff2") format("woff2"),
+url("/assets/fonts/app.myfonticons.b25e3529485fb778b55b39a0a3624e12.ttf") format("truetype"),
+url("/assets/fonts/app.myfonticons.caead2782be7a36f75faf41be2118dfb.svg#myfonticons") format("svg");
+}
+
+.myfonticon {
+	line-height: 1;
+}
+
+.myfonticon:before {
+	font-family: myfonticons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.myfonticon-btn_facebook_normal:before {
+	content: "\f101";
+}
+.myfonticon-btn_googleplus_normal:before {
+	content: "\f102";
+}
+.myfonticon-btn_linkedin_normal:before {
+	content: "\f103";
+}
+.myfonticon-btn_mail_normal:before {
+	content: "\f104";
+}
+.myfonticon-btn_twitter_normal:before {
+	content: "\f105";
+}
+.myfonticon-mixcloud:before {
+	content: "\f106";
+}
+.myfonticon-opencart:before {
+	content: "\f107";
+}
+.myfonticon-pinterest-square:before {
+	content: "\f108";
+}

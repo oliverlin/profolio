@@ -5,7 +5,7 @@
   "main": "y",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "webpack-dashboard webpack --watch"
+    "develop": "webpack-dashboard webpack-dev-server --hot"
   },
   "keywords": [
     "front",
@@ -24,12 +24,14 @@
     "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.14.5",
     "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.4",
     "progress-bar-webpack-plugin": "^1.10.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
     "webpack-dashboard": "^1.0.0-5",
+    "webpack-dev-server": "^2.9.1",
     "webpack-zepto": "^0.0.1",
     "zepto": "^1.2.0"
   }

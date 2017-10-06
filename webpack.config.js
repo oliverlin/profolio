@@ -2,22 +2,28 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 
-const javascriptOutputPath = 'assets/javascripts'
-const stylesheetsOutputPath = 'assets/stylesheets'
+const javascriptOutputPath = 'dist/javascripts'
+const stylesheetsOutputPath = 'dist/stylesheets'
 
 module.exports = {
   context: __dirname, // the project dir
-  entry: {
-    'application': './lib/javascripts/application'
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    './app/javascripts/application'
+  ],
+  devServer: {
+    hot: true
   },
   resolve: {
     modules: [
-      path.join(__dirname, 'assets/javascripts'),
-      path.join(__dirname, 'assets/stylesheets'),
-      path.join(__dirname, 'assets/images'),
+      path.join(__dirname, 'app/javascripts'),
+      path.join(__dirname, 'app/stylesheets'),
+      path.join(__dirname, 'app/images'),
+      path.join(__dirname, 'app/html'),
       'node_modules'
     ],
     extensions: ['.js', '.scss', '.css']
@@ -26,7 +32,7 @@ module.exports = {
   devtool: 'cheap-eval-source-map',
 
   output: {
-    filename: `${javascriptOutputPath}/[name].js`,
+    filename: `${javascriptOutputPath}/application.js`,
     path: path.join(__dirname, '/'),
     pathinfo: true
   },
@@ -112,7 +118,12 @@ module.exports = {
     // }),
     new webpack.NoEmitOnErrorsPlugin(),
     new ProgressBarPlugin(),
-    new DashboardPlugin
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'app/html/index.html'
+    }),
+    new DashboardPlugin,
+    new webpack.HotModuleReplacementPlugin()
   ],
   stats: {
     children: false // Disable ExtractTextPlugin logs
